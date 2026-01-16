@@ -49,14 +49,14 @@ int main() {
     constexpr double rho = 7850.0;
     constexpr double cp = 500.0;
 
-    constexpr double T0 = 350.0;   // x=0
-    constexpr double TL = 300.0;   // x=L
-    constexpr double Tinit = 300.0;   // initial uniform
+    constexpr double T0 = 350.0;            // x=0
+    constexpr double TL = 300.0;            // x=L
+    constexpr double Tinit = 300.0;         // Initial uniform
     constexpr double Q = 0.0;
 
     const double alpha = k / (rho * cp);
-    const double b = Q / (2.0 * k);                 // convenience: Q/(2k)
-    const double a = (TL - T0) / L;                 // linear slope from BCs
+    const double b = Q / (2.0 * k);         // convenience: Q/(2k)
+    const double a = (TL - T0) / L;         // linear slope from BCs
 
     // Steady solution:
     // Ts(x) = T0 + a x + b (L x - x^2)
@@ -84,7 +84,8 @@ int main() {
     //   I2 = ∫ x^2 sin(λx) dx   = -L^2 s /λ + 2(s - 1)/λ^3
     // where λ = nπ/L.
     //
-    // Bn = (2/L)[ A I0 + B I1 + C I2 ].
+    // Bn = (2/L)[ A I0 + B I1 + C I2 ]
+
     const double A = Tinit - T0;
     const double B = -(a + b * L);
     const double C = b;
